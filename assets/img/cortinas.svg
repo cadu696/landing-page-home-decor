@@ -1,0 +1,8 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#f0f0f0"/>
+  <path d="M50 0 L50 300 M100 0 L100 300 M150 0 L150 300" stroke="#d4af37" stroke-width="2" opacity="0.5"/>
+  <path d="M250 0 L250 300 M300 0 L300 300 M350 0 L350 300" stroke="#d4af37" stroke-width="2" opacity="0.5"/>
+  <path d="M20 20 C100 100, 100 200, 20 280" fill="none" stroke="#1a2a3a" stroke-width="3"/>
+  <path d="M380 20 C300 100, 300 200, 380 280" fill="none" stroke="#1a2a3a" stroke-width="3"/>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="24" fill="#333">Cortinas</text>
+</svg>
