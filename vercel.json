@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/uploads/(.*)", "destination": "/backend/uploads/$1" }
+  ]
+}
