@@ -1,46 +1,46 @@
 :root {
-    /* Colors - 'Modern Industrial/Editorial' Palette */
+    /* Cores - Paleta 'Industrial/Editorial Moderno' */
     --color-primary: #111111;
-    /* Almost Black */
+    /* Quase Preto */
     --color-secondary: #333333;
     --color-accent: #b4a482;
-    /* Gold extracted from logo */
+    /* Dourado extraído do logo */
     --color-accent-hover: #A3864D;
     --color-bg: #f8f8f8;
-    /* Very light gray/concrete */
+    /* Cinza muito claro/concreto */
     --color-bg-alt: #ffffff;
     --color-text: #222222;
     --color-text-light: #555555;
     --color-white: #ffffff;
     --color-border: #dddddd;
 
-    /* Typography */
+    /* Tipografia */
     --font-primary: 'Inter', sans-serif;
     --font-secondary: 'Playfair Display', serif;
-    /* Headers */
+    /* Títulos */
     --font-script: 'Great Vibes', cursive;
-    /* Accents */
+    /* Destaques */
     --font-logo: 'Montserrat', sans-serif;
 
-    /* Spacing */
+    /* Espaçamento */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1.5rem;
     --spacing-md: 3rem;
     --spacing-lg: 5rem;
     --spacing-xl: 8rem;
 
-    /* Shadows & Border Radius */
+    /* Sombras e Bordas Arredondadas */
     --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.05);
     --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
     --radius-sm: 0px;
     --radius-md: 2px;
 
-    /* Layout */
+    /* Layout (Estrutura) */
     --container-width: 1400px;
     --header-height: 90px;
 }
 
-/* Reset & Base */
+/* Reset e Base */
 * {
     margin: 0;
     padding: 0;
@@ -74,7 +74,7 @@ ul {
     list-style: none;
 }
 
-/* Utilities */
+/* Utilitários */
 .container {
     width: 100%;
     max-width: var(--container-width);
@@ -116,7 +116,7 @@ ul {
     display: block;
 }
 
-/* Buttons */
+/* Botões */
 .btn {
     display: inline-block;
     padding: 16px 32px;
@@ -153,7 +153,7 @@ ul {
     color: #000;
 }
 
-/* Header (Black & Gold) */
+/* Cabeçalho (Preto e Dourado) */
 .header {
     height: var(--header-height);
     background-color: #000000;
@@ -174,7 +174,7 @@ ul {
     align-items: center;
 }
 
-/* Logo - Image Based */
+/* Logo - Baseado em Imagem */
 .logo {
     display: flex;
     align-items: center;
@@ -182,7 +182,7 @@ ul {
     border: none;
     padding: 0;
     width: 280px;
-    /* Generous width for the logo */
+    /* Largura generosa para o logo */
     height: 100%;
     text-decoration: none;
 }
@@ -192,17 +192,17 @@ ul {
     width: 100%;
     height: auto;
     object-fit: contain;
-    /* No mix-blend-mode needed for transparent PNG */
+    /* Não precisa de mix-blend-mode para PNG transparente */
     filter: none;
 }
 
-/* Hide text fallback */
+/* Esconder texto alternativo */
 .logo__main,
 .logo__sub {
     display: none;
 }
 
-/* Navigation */
+/* Navegação */
 .nav__list {
     display: flex;
     gap: var(--spacing-md);
@@ -248,24 +248,24 @@ ul {
     display: none;
 }
 
-/* Hero Section (Split Layout) - Robust Fix */
+/* Seção Hero (Layout Dividido) - Correção Robusta */
 .hero {
     display: flex;
     flex-direction: column;
-    /* Use min-height 100vh to ensure it covers screen, but allow growing */
+    /* Usa min-height 100vh para cobrir a tela, mas permite crescer */
     min-height: 100vh;
     background-color: #000;
     position: relative;
     color: var(--color-white);
     margin-top: 0;
-    /* Cleanest approach: Padding equal to header height */
+    /* Abordagem mais limpa: Padding igual à altura do cabeçalho */
     padding-top: var(--header-height);
     box-sizing: border-box;
 }
 
 .hero__image-side {
     width: 100%;
-    /* Mobile: Image takes top part (e.g. 40-50% of viewport) */
+    /* Mobile: Imagem ocupa a parte de cima (ex: 40-50% da tela) */
     height: 50vh;
     position: relative;
     overflow: hidden;
@@ -278,12 +278,12 @@ ul {
     height: 100%;
     object-fit: cover;
     display: block;
-    /* Remove inline spacing */
+    /* Remove espaçamento inline */
 }
 
 .hero__content-side {
     width: 100%;
-    /* Mobile: Content takes remaining space naturally */
+    /* Mobile: Conteúdo ocupa o espaço restante naturalmente */
     flex: 1;
     display: flex;
     align-items: center;
@@ -293,7 +293,7 @@ ul {
     margin: 0;
 }
 
-/* ... title/subtitle styles ... */
+/* ... estilos de título/subtítulo ... */
 .hero__container {
     text-align: left;
     max-width: 600px;
@@ -324,27 +324,27 @@ ul {
     justify-content: flex-start;
 }
 
-/* Desktop Split Layout */
+/* Layout Dividido Desktop */
 @media (min-width: 992px) {
     .hero {
         flex-direction: row;
         height: 100vh;
-        /* Lock height on desktop */
+        /* Trava altura no desktop */
         overflow: hidden;
-        /* Prevent scroll on desktop hero */
+        /* Impede scroll no hero desktop */
     }
 
     .hero__image-side {
         width: 50%;
         height: 100%;
-        /* Fill container height */
+        /* Preenche a altura do container */
     }
 
     .hero__content-side {
         width: 50%;
         height: 100%;
         padding: var(--spacing-xl);
-        /* Ensure vertical centering */
+        /* Garante centralização vertical */
     }
 
     .hero__title {
@@ -352,7 +352,7 @@ ul {
     }
 }
 
-/* Products Section */
+/* Seção de Produtos */
 .products {
     background-color: var(--color-white);
 }
@@ -366,11 +366,11 @@ ul {
 .product-card {
     background-color: var(--color-white);
     border: 1px solid transparent;
-    /* Prepare for hover */
+    /* Preparado para hover */
     border-radius: 0;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    /* Subtle shadow */
+    /* Sombra sutil */
     transition: all 0.4s ease;
     position: relative;
     cursor: pointer;
@@ -381,7 +381,7 @@ ul {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     border-color: var(--color-accent);
-    /* Gold border on hover */
+    /* Borda dourada no hover */
 }
 
 .product-card:hover .product-card__image-wrapper img {
@@ -390,7 +390,7 @@ ul {
 
 .product-card__image-wrapper {
     height: 350px;
-    /* Slightly shorter for better proportion */
+    /* Um pouco menor para melhor proporção */
     background-color: #f9f9f9;
     display: flex;
     align-items: center;
@@ -399,13 +399,13 @@ ul {
     margin-bottom: var(--spacing-md);
     position: relative;
     border-bottom: 3px solid var(--color-accent);
-    /* Gold accent line */
+    /* Linha dourada de destaque */
 }
 
 .product-card__image-wrapper img {
     transition: transform 0.6s ease;
     width: 60%;
-    /* Svg icons shouldn't be full width usually, looks cleaner */
+    /* Ícones SVG não devem ocupar toda a largura, fica mais limpo */
     height: auto;
     object-fit: contain;
 }
@@ -415,7 +415,7 @@ ul {
     position: absolute;
     inset: 0;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.05), transparent);
-    /* Subtle depth */
+    /* Profundidade sutil */
     transition: background 0.3s ease;
 }
 
@@ -438,7 +438,7 @@ ul {
     color: #888;
 }
 
-/* About Section */
+/* Seção Sobre */
 .about {
     background-color: var(--color-bg);
 }
@@ -482,7 +482,7 @@ ul {
     color: #999;
 }
 
-/* Gallery Section */
+/* Seção Galeria */
 .gallery {
     background-color: var(--color-white);
 }
@@ -497,18 +497,194 @@ ul {
     height: 300px;
     background-color: #f0f0f0;
     border-radius: var(--radius-sm);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #888;
+    overflow: hidden;
     transition: opacity 0.3s ease;
+}
+
+.gallery__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .gallery__item:hover {
     opacity: 0.9;
 }
 
-/* Reviews Section */
+/* Galeria - Cards de projetos */
+.gallery__project-card {
+    display: block;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+.gallery__project-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    color: #fff;
+    font-family: var(--font-secondary);
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+.gallery__project-overlay--empty {
+    position: static;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e0e0e0;
+    color: var(--color-text-light);
+    font-size: 1.1rem;
+}
+.gallery__project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    opacity: 1;
+}
+
+/* Página Galeria por Coleções */
+.galeria-page {
+    background-color: var(--color-bg);
+    min-height: 100vh;
+}
+
+.collection {
+    margin-bottom: var(--spacing-xl);
+    scroll-margin-top: var(--header-height);
+}
+
+.collection__title {
+    font-family: var(--font-secondary);
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: 0.25rem;
+    font-weight: 400;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-accent);
+}
+
+.collection__desc {
+    color: var(--color-text-light);
+    font-size: 1rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.collection__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-sm);
+}
+
+.collection__item {
+    aspect-ratio: 4/3;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background-color: #eee;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.collection__item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.collection__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Card de produto como link (galeria) */
+.product-card-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    height: 100%;
+}
+
+.product-card-link:hover {
+    color: inherit;
+}
+
+.product-card-link .product-card {
+    height: 100%;
+}
+
+/* Página de produto única (3 botões com imagem) */
+.product-page {
+    background-color: var(--color-bg);
+    min-height: 100vh;
+    padding-top: calc(var(--header-height) + var(--spacing-lg));
+    padding-bottom: var(--spacing-xl);
+}
+
+.product-page .section__header {
+    margin-bottom: var(--spacing-lg);
+}
+
+.page-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+    .page-buttons {
+        grid-template-columns: 1fr;
+    }
+}
+
+.page-btn {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: var(--color-white);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.page-btn:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+    color: inherit;
+}
+
+.page-btn__image {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.page-btn__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.page-btn__title {
+    font-family: var(--font-secondary);
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    padding: var(--spacing-sm);
+    text-align: center;
+    font-weight: 400;
+}
+
+/* Seção Depoimentos */
 .reviews {
     background-color: var(--color-bg);
 }
@@ -541,7 +717,7 @@ ul {
 
 .reviews__rating .stars {
     color: #f4b400;
-    /* Google Yellow */
+    /* Amarelo Google */
     font-size: 1.5rem;
     letter-spacing: 2px;
     margin-bottom: 5px;
@@ -596,7 +772,7 @@ ul {
 
 .review-card__stars {
     color: #f4b400;
-    /* Google Yellow */
+    /* Amarelo Google */
     font-size: 0.8rem;
     display: block;
 }
@@ -607,37 +783,37 @@ ul {
     font-weight: 300;
 }
 
-/* Footer */
+/* Rodapé */
 .footer {
     background-color: #000000;
-    /* Header Black */
+    /* Preto do Cabeçalho */
     color: #e0e0e0;
-    /* Softer White for text */
+    /* Branco mais suave para texto */
     padding: var(--spacing-md) 0 var(--spacing-md);
-    /* Reduced top padding */
+    /* Padding superior reduzido */
     border-top: 1px solid #222;
-    /* Matches header border style */
+    /* Combina com o estilo da borda do cabeçalho */
 }
 
-/* Specific column alignment */
+/* Alinhamento específico de coluna */
 .footer__brand {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Centers logo in the column */
+    /* Centraliza o logo na coluna */
     text-align: left;
-    /* Aligns description text to the left */
+    /* Alinha o texto de descrição à esquerda */
 }
 
-/* Ensure paragraph takes full width to respect text-align: left */
+/* Garante que o parágrafo ocupe toda a largura para respeitar text-align: left */
 .footer__brand p {
     width: 100%;
 }
 
-/* Indent Products column as requested */
+/* Recuo da coluna de Produtos conforme solicitado */
 .footer__col--products {
     padding-left: 50px;
-    /* Shift content to the 'green line' */
+    /* Desloca o conteúdo para a 'linha verde' */
 }
 
 .footer__container {
@@ -646,13 +822,13 @@ ul {
     gap: var(--spacing-md);
     margin-bottom: var(--spacing-lg);
     text-align: center;
-    /* Default for mobile */
+    /* Padrão para mobile */
 }
 
 @media (min-width: 768px) {
     .footer__container {
         grid-template-columns: 3fr 3fr 3fr 1fr;
-        /* 30% 30% 30% 10% distribution */
+        /* Distribuição 30% 30% 30% 10% */
         text-align: left;
     }
 
@@ -667,11 +843,11 @@ ul {
     border: none;
     padding: 0;
     margin-bottom: 20px;
-    /* Standard spacing after logo */
+    /* Espaçamento padrão após o logo */
     margin-top: 5px;
-    /* Tiny adjustment to align visual top with text, resetting previous negative hacks */
+    /* Pequeno ajuste para alinhar visualmente o topo com o texto */
     width: 250px;
-    /* Balanced width for the cropped logo */
+    /* Largura equilibrada para o logo cortado */
     height: auto;
     max-width: 100%;
 }
@@ -680,11 +856,11 @@ ul {
     width: 100%;
     height: auto;
     display: block;
-    /* No margin hacks needed with cropped image */
+    /* Não precisa de hacks de margem com imagem cortada */
     object-fit: contain;
 }
 
-/* Removed .footer__desc block - merged into .footer__brand section */
+/* Bloco .footer__desc removido - mesclado na seção .footer__brand */
 
 .footer__title {
     font-family: var(--font-primary);
@@ -692,18 +868,18 @@ ul {
     font-weight: 700;
     margin-bottom: 1.5rem;
     color: var(--color-accent);
-    /* Gold matches header links */
+    /* Dourado combina com os links do cabeçalho */
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 .footer__links {
     list-style: none;
-    /* Remove bullets */
+    /* Remove marcadores */
     padding: 0;
-    /* Remove default padding */
+    /* Remove padding padrão */
     margin: 0;
-    /* Remove default margin */
+    /* Remove margem padrão */
 }
 
 .footer__links li {
@@ -744,9 +920,9 @@ ul {
     display: flex;
     gap: 15px;
     justify-content: center;
-    /* Center on mobile */
+    /* Centralizado no mobile */
     padding-top: 5px;
-    /* Consistent alignment */
+    /* Alinhamento consistente */
 }
 
 @media (min-width: 768px) {
@@ -776,14 +952,14 @@ ul {
 .footer__bottom {
     text-align: center;
     border-top: none;
-    /* Removed border */
+    /* Borda removida */
     padding-top: var(--spacing-sm);
     font-size: 0.8rem;
     color: #666;
-    /* Darker gray for copyright */
+    /* Cinza mais escuro para copyright */
 }
 
-/* Mobile Navigation */
+/* Navegação Mobile */
 @media (max-width: 767px) {
     .header {
         height: 70px;
@@ -856,4 +1032,145 @@ ul {
     .hamburger::after {
         top: 8px;
     }
+}
+
+/* Modal Lead (Solicitar Orçamento) */
+.lead-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.3s;
+}
+.lead-modal[aria-hidden="false"] {
+    visibility: visible;
+    opacity: 1;
+}
+.lead-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+.lead-modal__box {
+    position: relative;
+    background: var(--color-white);
+    color: var(--color-text);
+    max-width: 420px;
+    width: 100%;
+    padding: 28px;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+.lead-modal__close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: none;
+    font-size: 1.8rem;
+    line-height: 1;
+    color: #666;
+    cursor: pointer;
+}
+.lead-modal__close:hover { color: #000; }
+.lead-modal__title {
+    font-family: var(--font-secondary);
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+}
+.lead-modal__subtitle {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 20px;
+}
+.lead-form label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+.lead-form input,
+.lead-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 0;
+    margin-bottom: 14px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+.lead-form textarea { resize: vertical; min-height: 80px; }
+.lead-form button[type="submit"] { width: 100%; margin-top: 8px; }
+
+/* Lightbox (visualização ampliada de imagem/vídeo) */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    cursor: zoom-out;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.3s;
+}
+.lightbox.active {
+    visibility: visible;
+    opacity: 1;
+}
+.lightbox__content {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 4px;
+    object-fit: contain;
+}
+.lightbox__close {
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.5rem;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 1;
+    transition: opacity 0.2s;
+}
+.lightbox__close:hover { opacity: 0.7; }
+.lightbox__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+.lightbox__nav:hover { background: rgba(255,255,255,0.3); }
+.lightbox__nav--prev { left: 16px; }
+.lightbox__nav--next { right: 16px; }
+
+/* Cursor de zoom nas imagens da galeria */
+.collection__item img,
+.collection__item video {
+    cursor: zoom-in;
 }

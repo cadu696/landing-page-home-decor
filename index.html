@@ -8,7 +8,7 @@
     <meta name="description"
         content="Transforme seu ambiente com a Home Top Cortinas Decor. Fabricação própria de cortinas, persianas, papéis de parede, tapetes e piso vinílico. Atendemos Porto Belo e região com Luxo Acessível.">
 
-    <!-- Open Graph / SEO -->
+    <!-- Open Graph / SEO (Redes Sociais) -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.hometopcortinasdecor.com.br/">
     <meta property="og:title" content="Home Top Cortinas Decor | Cortinas, Persianas e Papéis de Parede">
@@ -16,10 +16,10 @@
         content="Transforme seu ambiente com a Home Top Cortinas Decor. Fabricação própria de cortinas e persianas em Porto Belo e região.">
     <meta property="og:image" content="assets/img/cortinas.svg">
 
-    <!-- Favicon -->
+    <!-- Ícone do Site -->
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 
-    <!-- Google Fonts (Incl. Montserrat for Logo) -->
+    <!-- Google Fonts (Incl. Montserrat para Logo) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -32,10 +32,10 @@
 
 <body>
 
-    <!-- Header -->
+    <!-- Cabeçalho -->
     <header id="header" class="header">
         <div class="container header__container">
-            <a href="#" class="logo">
+            <a href="index.html" class="logo">
                 <img src="assets/img/logo.png" alt="Home Top Cortinas Decor">
             </a>
 
@@ -51,11 +51,11 @@
                 </ul>
             </nav>
 
-            <a href="https://wa.me/5547999140885" target="_blank" class="btn btn--primary header__cta">
+            <button type="button" class="btn btn--primary header__cta" id="btn-solicitar-orcamento">
                 Solicitar Orçamento
-            </a>
+            </button>
 
-            <!-- Mobile Toggle -->
+            <!-- Botão Menu Mobile -->
             <div class="mobile-toggle" id="mobile-toggle">
                 <span></span>
                 <span></span>
@@ -64,13 +64,13 @@
         </div>
     </header>
 
-    <!-- Main Content -->
+    <!-- Conteúdo Principal -->
     <main>
-        <!-- Hero Section (Split Layout) -->
+        <!-- Seção Hero (Layout Dividido) -->
         <section id="home" class="hero">
             <div class="hero__image-side">
-                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop"
-                    alt="Interior Design Home Top" style="width: 100%; height: 100%; object-fit: cover;">
+                <img src="assets/img/hero-interior.png"
+                    alt="Sala de estar moderna com sofá, cortinas e decoração elegante" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
             <div class="hero__content-side">
                 <div class="hero__container">
@@ -79,15 +79,15 @@
                         toque
                         de luxo que sua casa merece.</p>
                     <div class="hero__actions">
-                        <a href="https://wa.me/5547999140885" target="_blank" class="btn btn--primary">Falar com
-                            Especialista</a>
-                        <a href="#gallery" class="btn btn--outline">Galeria</a> <!-- New Button -->
+                        <button type="button" class="btn btn--primary js-open-lead-modal">Falar com
+                            Especialista</button>
+                        <a href="#gallery" class="btn btn--outline">Galeria</a> <!-- Novo Botão -->
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Products Section -->
+        <!-- Seção de Produtos -->
         <section id="products" class="section products">
             <div class="container">
                 <div class="section__header">
@@ -95,97 +95,20 @@
                     <p class="section__subtitle">Soluções completas para decoração de interiores</p>
                 </div>
 
-                <div class="products__grid">
-                    <!-- Cards -->
-                    <article class="product-card">
-                        <div class="product-card__image-wrapper">
-                            <img src="assets/img/cortinas.svg" alt="Cortinas Sob Medida">
-                        </div>
-                        <h3 class="product-card__title">Cortinas Sob Medida</h3>
-                        <p class="product-card__desc">Tecidos nobres e acabamento impecável para transformar seu
-                            ambiente.</p>
-                    </article>
-
-                    <article class="product-card">
-                        <div class="product-card__image-wrapper">
-                            <img src="assets/img/persianas.svg" alt="Persianas">
-                        </div>
-                        <h3 class="product-card__title">Persianas</h3>
-                        <p class="product-card__desc">Funcionalidade e design moderno. Modelos Rolô, Romana, Vertical e
-                            mais.</p>
-                    </article>
-
-                    <article class="product-card">
-                        <div class="product-card__image-wrapper">
-                            <img src="assets/img/papel-parede.svg" alt="Papéis de Parede">
-                        </div>
-                        <h3 class="product-card__title">Papéis de Parede</h3>
-                        <p class="product-card__desc">Estampas e texturas exclusivas para dar personalidade às suas
-                            paredes.</p>
-                    </article>
-
-                    <article class="product-card">
-                        <div class="product-card__image-wrapper">
-                            <img src="assets/img/tapetes.svg" alt="Tapetes">
-                        </div>
-                        <h3 class="product-card__title">Tapetes</h3>
-                        <p class="product-card__desc">Conforto e sofisticação aos seus pés em diversos tamanhos e
-                            estilos.</p>
-                    </article>
-
-                    <article class="product-card">
-                        <div class="product-card__image-wrapper">
-                            <img src="assets/img/piso-vinilico.svg" alt="Piso Vinílico">
-                        </div>
-                        <h3 class="product-card__title">Piso Vinílico</h3>
-                        <p class="product-card__desc">Praticidade, durabilidade e beleza térmica para o seu lar.</p>
-                    </article>
-
-                    <article class="product-card">
-                        <div class="product-card__image-wrapper">
-                            <img src="assets/img/tapetes.svg" alt="Almofadas">
-                        </div>
-                        <h3 class="product-card__title">Almofadas</h3>
-                        <p class="product-card__desc">Toque final de conforto e estilo com peças exclusivas e
-                            personalizadas.</p>
-                    </article>
-
-                    <article class="product-card">
-                        <div class="product-card__image-wrapper">
-                            <img src="assets/img/cortinas.svg" alt="Enxoval">
-                        </div>
-                        <h3 class="product-card__title">Enxoval</h3>
-                        <p class="product-card__desc">Roupas de cama Altenburg e enxovais completos para seu conforto.
-                        </p>
-                    </article>
-
-                    <article class="product-card">
-                        <div class="product-card__image-wrapper">
-                            <img src="assets/img/persianas.svg" alt="Pingentes">
-                        </div>
-                        <h3 class="product-card__title">Pingentes</h3>
-                        <p class="product-card__desc">Detalhes que fazem a diferença na decoração das suas cortinas.</p>
-                    </article>
-
-                    <article class="product-card">
-                        <div class="product-card__image-wrapper">
-                            <img src="assets/img/papel-parede.svg" alt="Abraçadeiras">
-                        </div>
-                        <h3 class="product-card__title">Abraçadeiras</h3>
-                        <p class="product-card__desc">Acessórios elegantes para prender e estilizar suas cortinas.</p>
-                    </article>
+                <div class="products__grid" id="productsGrid">
+                    <!-- Carregado dinamicamente via API -->
                 </div>
             </div>
         </section>
 
-        <!-- About Section (Company) -->
+        <!-- Seção Sobre (Empresa) -->
         <section id="about" class="section about">
             <div class="container about__container">
                 <div class="about__content">
                     <h2 class="section__title">Sobre a Home Top</h2>
                     <p class="about__text">
                         A Home Top Cortinas Decor é referência em Porto Belo e região, oferecendo o conceito de
-                        "Accessible Luxury".
+                        "Luxo Acessível".
                         Com fabricação própria, garantimos qualidade superior e personalização total em cada detalhe.
                         Nossa missão é transformar ambientes, unindo estética e funcionalidade para criar o espaço dos
                         seus sonhos.
@@ -204,7 +127,7 @@
             </div>
         </section>
 
-        <!-- Bio Section (Quem Somos - Person) -->
+        <!-- Seção Bio (Quem Somos - Pessoa) -->
         <section id="bio" class="section about bio" style="background-color: var(--color-white);">
             <div class="container about__container bio__container">
                 <div class="about__image bio__image">
@@ -228,31 +151,27 @@
                         <li><span class="icon">🌿</span> Especialista em Harmonização de Ambientes</li>
                         <li><span class="icon">💎</span> Curadoria de Produtos Premium</li>
                     </ul>
-                    <a href="https://wa.me/5547999140885" target="_blank" class="btn btn--primary"
-                        style="margin-top: 20px;">Conheça Minha Consultoria</a>
+                    <button type="button" class="btn btn--primary js-open-lead-modal"
+                        style="margin-top: 20px;">Conheça Minha Consultoria</button>
                 </div>
             </div>
         </section>
 
-        <!-- Gallery Section -->
+        <!-- Seção Galeria -->
         <section id="gallery" class="section gallery">
             <div class="container">
                 <div class="section__header">
                     <h2 class="section__title">Galeria de Projetos</h2>
                     <p class="section__subtitle">Inspire-se com algumas de nossas transformações</p>
                 </div>
-                <div class="gallery__grid">
-                    <div class="gallery__item">Galeria 1</div>
-                    <div class="gallery__item">Galeria 2</div>
-                    <div class="gallery__item">Galeria 3</div>
-                    <div class="gallery__item">Galeria 4</div>
-                    <div class="gallery__item">Galeria 5</div>
-                    <div class="gallery__item">Galeria 6</div>
+                <div class="gallery__grid" id="projectsGrid">
+                    <!-- Carregado dinamicamente via API -->
                 </div>
+                <p id="projectsEmpty" style="display:none; text-align:center; color:#888; margin-top:2rem;">Nenhum projeto cadastrado ainda.</p>
             </div>
         </section>
 
-        <!-- Reviews Section (Google Reviews Style) -->
+        <!-- Seção Depoimentos (Estilo Google Reviews) -->
         <section id="reviews" class="section reviews">
             <div class="container">
                 <div class="section__header">
@@ -267,7 +186,7 @@
                 </div>
 
                 <div class="reviews__carousel">
-                    <!-- Review Card 1 -->
+                    <!-- Cartão Depoimento 1 -->
                     <div class="review-card">
                         <div class="review-card__header">
                             <div class="review-card__avatar">M</div>
@@ -279,7 +198,7 @@
                         <p class="review-card__text">"Excelente atendimento e qualidade do produto, super indico."</p>
                     </div>
 
-                    <!-- Review Card 2 -->
+                    <!-- Cartão Depoimento 2 -->
                     <div class="review-card">
                         <div class="review-card__header">
                             <div class="review-card__avatar">P</div>
@@ -294,7 +213,7 @@
                             Recomendo."</p>
                     </div>
 
-                    <!-- Review Card 4 -->
+                    <!-- Cartão Depoimento 3 -->
                     <div class="review-card">
                         <div class="review-card__header">
                             <div class="review-card__avatar">D</div>
@@ -307,7 +226,7 @@
                             qualidade e agilidade. Super indico."</p>
                     </div>
 
-                    <!-- Review Card 5 -->
+                    <!-- Cartão Depoimento 4 -->
                     <div class="review-card">
                         <div class="review-card__header">
                             <div class="review-card__avatar">A</div>
@@ -324,13 +243,12 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <!-- Footer -->
+    <!-- Rodapé -->
     <footer id="contact" class="footer">
         <div class="container footer__container">
-            <!-- Column 1: Brand -->
+            <!-- Coluna 1: Marca -->
             <div class="footer__col footer__brand">
-                <a href="#" class="logo footer__logo">
+                <a href="index.html" class="logo footer__logo">
                     <img src="assets/img/logo_cropped.png" alt="Home Top Cortinas Decor">
                 </a>
                 <p class="footer__desc">A Hometop é uma loja de decoração de alto padrão localizada em Porto Belo,
@@ -339,65 +257,31 @@
                     Bombinhas, Itapema, Balneário Camboriú, Itajaí, Tijucas e todo o litoral catarinense.</p>
             </div>
 
-            <!-- Column 2: Categories -->
+            <!-- Coluna 2: Categorias -->
             <div class="footer__col footer__col--products">
                 <h3 class="footer__title">Produtos</h3>
                 <ul class="footer__links">
-                    <li><a href="#products">Cortinas Sob Medida</a></li>
-                    <li><a href="#products">Persianas</a></li>
-                    <li><a href="#products">Papel de Parede</a></li>
-                    <li><a href="#products">Tapetes</a></li>
-                    <li><a href="#products">Pisos Vinílicos</a></li>
-                    <li><a href="#products">Almofadas</a></li>
-                    <li><a href="#products">Enxoval</a></li>
-                    <li><a href="#products">Pingentes</a></li>
-                    <li><a href="#products">Abraçadeiras</a></li>
+                    <li><a href="produto.html?id=cortinas">Cortinas Sob Medida</a></li>
+                    <li><a href="produto.html?id=persianas">Persianas</a></li>
+                    <li><a href="produto.html?id=papel-parede">Papel de Parede</a></li>
+                    <li><a href="produto.html?id=tapetes">Tapetes</a></li>
+                    <li><a href="produto.html?id=piso-vinilico">Pisos Vinílicos</a></li>
+                    <li><a href="produto.html?id=almofadas">Almofadas</a></li>
+                    <li><a href="produto.html?id=enxoval">Enxoval</a></li>
+                    <li><a href="produto.html?id=pingentes">Pingentes</a></li>
+                    <li><a href="produto.html?id=abracadeiras">Abraçadeiras</a></li>
                 </ul>
             </div>
 
-            <!-- Column 3: Support -->
+            <!-- Coluna 3: Atendimento (dinâmico via API) -->
             <div class="footer__col">
                 <h3 class="footer__title">Atendimento</h3>
-                <a href="https://wa.me/5547999140885" target="_blank" class="footer__contact-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path
-                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                        </path>
-                    </svg>
-                    (47) 99914-0885
-                </a>
-                <a href="https://wa.me/5547997287663" target="_blank" class="footer__contact-link"
-                    style="margin-top: 10px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path
-                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                        </path>
-                    </svg>
-                    (47) 99728-7663
-                </a>
+                <div id="footer-numbers"></div>
             </div>
 
-            <!-- Column 4: Social -->
+            <!-- Coluna 4: Redes Sociais (dinâmico via API) -->
             <div class="footer__col footer__social-col">
-                <div class="footer__social">
-                    <a href="https://www.instagram.com/hometopcortinasdecor/" target="_blank" aria-label="Instagram">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                        </svg>
-                    </a>
-                    <a href="https://maps.app.goo.gl/g35MoFnewbufKrgx9" target="_blank" aria-label="Localização">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                            <circle cx="12" cy="10" r="3"></circle>
-                        </svg>
-                    </a>
-                </div>
+                <div class="footer__social" id="footer-sites"></div>
             </div>
         </div>
         <div class="footer__bottom">
@@ -405,7 +289,27 @@
         </div>
     </footer>
 
+    <!-- Modal Lead (Solicitar Orçamento) -->
+    <div id="lead-modal" class="lead-modal" aria-hidden="true">
+        <div class="lead-modal__backdrop"></div>
+        <div class="lead-modal__box">
+            <button type="button" class="lead-modal__close" id="lead-modal-close">&times;</button>
+            <h3 class="lead-modal__title">Solicitar Orçamento</h3>
+            <p class="lead-modal__subtitle">Deixe seus dados e vamos te redirecionar para o WhatsApp.</p>
+            <form id="lead-form" class="lead-form">
+                <label for="lead-nome">Nome *</label>
+                <input type="text" id="lead-nome" name="nome" required placeholder="Seu nome">
+                <label for="lead-telefone">Telefone / WhatsApp *</label>
+                <input type="text" id="lead-telefone" name="telefone" required placeholder="(47) 99999-9999">
+                <label for="lead-mensagem">Mensagem (opcional)</label>
+                <textarea id="lead-mensagem" name="mensagem" rows="3" placeholder="Conte brevemente o que precisa..."></textarea>
+                <button type="submit" class="btn btn--primary">Enviar e ir para WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/lead-capture.js"></script>
 </body>
 
 </html>

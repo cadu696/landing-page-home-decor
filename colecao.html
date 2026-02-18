@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coleção | Home Top Cortinas Decor</title>
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header id="header" class="header">
+        <div class="container header__container">
+            <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="Home Top Cortinas Decor"></a>
+            <nav class="nav" id="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html#home" class="nav__link">Início</a></li>
+                    <li class="nav__item"><a href="index.html#products" class="nav__link">Produtos</a></li>
+                    <li class="nav__item"><a href="index.html#about" class="nav__link">Sobre</a></li>
+                    <li class="nav__item"><a href="index.html#gallery" class="nav__link">Galeria</a></li>
+                    <li class="nav__item"><a href="index.html#reviews" class="nav__link">Depoimentos</a></li>
+                    <li class="nav__item"><a href="index.html#contact" class="nav__link">Contato</a></li>
+                </ul>
+            </nav>
+            <button type="button" class="btn btn--primary header__cta js-open-lead-modal">Solicitar Orçamento</button>
+            <div class="mobile-toggle" id="mobile-toggle"><span></span><span></span><span></span></div>
+        </div>
+    </header>
+
+    <main class="galeria-page">
+        <div class="container">
+            <div class="section__header" style="padding-top: calc(var(--header-height) + var(--spacing-lg));">
+                <p id="breadcrumb" style="font-size:0.95rem; margin-bottom:0.5rem;"></p>
+                <h1 class="section__title" id="collectionTitle">Carregando...</h1>
+                <p class="section__subtitle" id="collectionDesc"></p>
+            </div>
+
+            <div class="collection__grid" id="galleryGrid">
+                <!-- Imagens carregadas via API -->
+            </div>
+
+            <p id="emptyMsg" style="display:none; text-align:center; color:#888; font-size:1.1rem; margin-top:2rem;">
+                Nenhuma imagem cadastrada nesta coleção ainda.
+            </p>
+
+            <div style="text-align:center; margin-top:3rem;">
+                <button type="button" class="btn btn--primary js-open-lead-modal">Solicitar Orçamento</button>
+                <a href="#" id="backToProduct" class="btn btn--outline" style="margin-left:12px;">Voltar ao Produto</a>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+        <div class="container footer__container">
+            <div class="footer__col footer__brand">
+                <a href="index.html" class="logo footer__logo"><img src="assets/img/logo_cropped.png" alt="Home Top Cortinas Decor"></a>
+                <p class="footer__desc">A Hometop é uma loja de decoração de alto padrão em Porto Belo, com cortinas sob medida, persianas, papéis de parede e mais. Atendemos toda a região.</p>
+            </div>
+            <div class="footer__col">
+                <h3 class="footer__title">Atendimento</h3>
+                <div id="footer-numbers"></div>
+            </div>
+            <div class="footer__col footer__social-col">
+                <div class="footer__social" id="footer-sites"></div>
+            </div>
+        </div>
+        <div class="footer__bottom"><p>&copy; 2026 Home Top Cortinas Decor. Todos os direitos reservados.</p></div>
+    </footer>
+
+    <!-- Modal Lead -->
+    <div id="lead-modal" class="lead-modal" aria-hidden="true">
+        <div class="lead-modal__backdrop"></div>
+        <div class="lead-modal__box">
+            <button type="button" class="lead-modal__close" id="lead-modal-close">&times;</button>
+            <h3 class="lead-modal__title">Solicitar Orçamento</h3>
+            <p class="lead-modal__subtitle">Deixe seus dados e vamos te redirecionar para o WhatsApp.</p>
+            <form id="lead-form" class="lead-form">
+                <label for="lead-nome">Nome *</label>
+                <input type="text" id="lead-nome" name="nome" required placeholder="Seu nome">
+                <label for="lead-telefone">Telefone / WhatsApp *</label>
+                <input type="text" id="lead-telefone" name="telefone" required placeholder="(47) 99999-9999">
+                <label for="lead-mensagem">Mensagem (opcional)</label>
+                <textarea id="lead-mensagem" name="mensagem" rows="3" placeholder="Conte brevemente o que precisa..."></textarea>
+                <button type="submit" class="btn btn--primary">Enviar e ir para WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/lead-capture.js"></script>
+    <script>
+        (function() {
+            var params = new URLSearchParams(window.location.search);
+            var prodId = params.get('produto');
+            var colId = params.get('colecao');
+            if (!prodId || !colId) { document.getElementById('collectionTitle').textContent = 'Coleção não encontrada'; return; }
+
+            document.getElementById('backToProduct').href = 'produto.html?id=' + encodeURIComponent(prodId);
+
+            fetch('/api/public/products/' + encodeURIComponent(prodId))
+                .then(function(res) { if (!res.ok) throw new Error('404'); return res.json(); })
+                .then(function(prod) {
+                    var col = (prod.collections || []).find(function(c) { return c.id === colId; });
+                    if (!col) { document.getElementById('collectionTitle').textContent = 'Coleção não encontrada'; return; }
+
+                    document.title = col.title + ' - ' + prod.title + ' | Home Top Cortinas Decor';
+                    document.getElementById('collectionTitle').textContent = col.title;
+                    document.getElementById('breadcrumb').innerHTML =
+                        '<a href="index.html#products" style="color:var(--color-accent)">Produtos</a> &rsaquo; ' +
+                        '<a href="produto.html?id=' + encodeURIComponent(prodId) + '" style="color:var(--color-accent)">' + prod.title + '</a> &rsaquo; ' +
+                        col.title;
+
+                    var images = col.images || [];
+                    var grid = document.getElementById('galleryGrid');
+                    grid.innerHTML = '';
+
+                    if (images.length === 0) {
+                        document.getElementById('emptyMsg').style.display = 'block';
+                        return;
+                    }
+
+                    images.forEach(function(imgUrl) {
+                        var src = imgUrl;
+                        if (src && !src.startsWith('http') && !src.startsWith('/')) src = '/' + src;
+                        var div = document.createElement('div');
+                        div.className = 'collection__item';
+                        div.innerHTML = '<img src="' + src + '" alt="' + col.title + '">';
+                        grid.appendChild(div);
+                    });
+                })
+                .catch(function() {
+                    document.getElementById('collectionTitle').textContent = 'Coleção não encontrada';
+                });
+        })();
+    </script>
+</body>
+</html>

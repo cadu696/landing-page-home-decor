@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto | Home Top Cortinas Decor</title>
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header id="header" class="header">
+        <div class="container header__container">
+            <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="Home Top Cortinas Decor"></a>
+            <nav class="nav" id="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html#home" class="nav__link">Início</a></li>
+                    <li class="nav__item"><a href="index.html#products" class="nav__link">Produtos</a></li>
+                    <li class="nav__item"><a href="index.html#about" class="nav__link">Sobre</a></li>
+                    <li class="nav__item"><a href="index.html#gallery" class="nav__link">Galeria</a></li>
+                    <li class="nav__item"><a href="index.html#reviews" class="nav__link">Depoimentos</a></li>
+                    <li class="nav__item"><a href="index.html#contact" class="nav__link">Contato</a></li>
+                </ul>
+            </nav>
+            <button type="button" class="btn btn--primary header__cta js-open-lead-modal">Solicitar Orçamento</button>
+            <div class="mobile-toggle" id="mobile-toggle"><span></span><span></span><span></span></div>
+        </div>
+    </header>
+
+    <main class="product-page">
+        <div class="container">
+            <div class="section__header">
+                <h1 class="section__title" id="productTitle">Carregando...</h1>
+                <p class="section__subtitle" id="productDesc"></p>
+            </div>
+            <div class="page-buttons" id="collectionsGrid">
+                <!-- Coleções carregadas via API -->
+            </div>
+            <p id="emptyMsg" style="display:none; text-align:center; color:#888; font-size:1.1rem; margin-top:2rem;">
+                Nenhuma coleção cadastrada ainda. Entre em contato para saber mais.
+            </p>
+            <div style="text-align:center; margin-top:3rem;">
+                <button type="button" class="btn btn--primary js-open-lead-modal">Solicitar Orçamento</button>
+                <a href="index.html#products" class="btn btn--outline" style="margin-left:12px;">Voltar aos Produtos</a>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+        <div class="container footer__container">
+            <div class="footer__col footer__brand">
+                <a href="index.html" class="logo footer__logo"><img src="assets/img/logo_cropped.png" alt="Home Top Cortinas Decor"></a>
+                <p class="footer__desc">A Hometop é uma loja de decoração de alto padrão em Porto Belo, com cortinas sob medida, persianas, papéis de parede e mais. Atendemos toda a região.</p>
+            </div>
+            <div class="footer__col">
+                <h3 class="footer__title">Atendimento</h3>
+                <div id="footer-numbers"></div>
+            </div>
+            <div class="footer__col footer__social-col">
+                <div class="footer__social" id="footer-sites"></div>
+            </div>
+        </div>
+        <div class="footer__bottom"><p>&copy; 2026 Home Top Cortinas Decor. Todos os direitos reservados.</p></div>
+    </footer>
+
+    <!-- Modal Lead -->
+    <div id="lead-modal" class="lead-modal" aria-hidden="true">
+        <div class="lead-modal__backdrop"></div>
+        <div class="lead-modal__box">
+            <button type="button" class="lead-modal__close" id="lead-modal-close">&times;</button>
+            <h3 class="lead-modal__title">Solicitar Orçamento</h3>
+            <p class="lead-modal__subtitle">Deixe seus dados e vamos te redirecionar para o WhatsApp.</p>
+            <form id="lead-form" class="lead-form">
+                <label for="lead-nome">Nome *</label>
+                <input type="text" id="lead-nome" name="nome" required placeholder="Seu nome">
+                <label for="lead-telefone">Telefone / WhatsApp *</label>
+                <input type="text" id="lead-telefone" name="telefone" required placeholder="(47) 99999-9999">
+                <label for="lead-mensagem">Mensagem (opcional)</label>
+                <textarea id="lead-mensagem" name="mensagem" rows="3" placeholder="Conte brevemente o que precisa..."></textarea>
+                <button type="submit" class="btn btn--primary">Enviar e ir para WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/lead-capture.js"></script>
+    <script>
+        (function() {
+            var params = new URLSearchParams(window.location.search);
+            var prodId = params.get('id');
+            if (!prodId) { document.getElementById('productTitle').textContent = 'Produto não encontrado'; return; }
+
+            fetch('/api/public/products/' + encodeURIComponent(prodId))
+                .then(function(res) { if (!res.ok) throw new Error('404'); return res.json(); })
+                .then(function(prod) {
+                    document.title = prod.title + ' | Home Top Cortinas Decor';
+                    document.getElementById('productTitle').textContent = prod.title;
+                    document.getElementById('productDesc').textContent = prod.desc || '';
+
+                    var collections = prod.collections || [];
+                    var grid = document.getElementById('collectionsGrid');
+                    grid.innerHTML = '';
+
+                    if (collections.length === 0) {
+                        document.getElementById('emptyMsg').style.display = 'block';
+                        grid.style.display = 'none';
+                        return;
+                    }
+
+                    collections.forEach(function(col) {
+                        var imgSrc = col.image || prod.image || '';
+                        if (imgSrc && !imgSrc.startsWith('http') && !imgSrc.startsWith('/')) imgSrc = '/' + imgSrc;
+
+                        var a = document.createElement('a');
+                        a.href = 'colecao.html?produto=' + encodeURIComponent(prodId) + '&colecao=' + encodeURIComponent(col.id);
+                        a.className = 'page-btn';
+                        a.innerHTML =
+                            '<div class="page-btn__image">' +
+                                (imgSrc ? '<img src="' + imgSrc + '" alt="' + (col.title || '') + '">' : '<div style="height:100%;display:flex;align-items:center;justify-content:center;color:#999">Sem imagem</div>') +
+                            '</div>' +
+                            '<h3 class="page-btn__title">' + (col.title || 'Sem título') + '</h3>';
+                        grid.appendChild(a);
+                    });
+                })
+                .catch(function() {
+                    document.getElementById('productTitle').textContent = 'Produto não encontrado';
+                    document.getElementById('collectionsGrid').style.display = 'none';
+                });
+        })();
+    </script>
+</body>
+</html>

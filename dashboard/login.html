@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Dashboard Home Top</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f5f5f5;
+            --card: #ffffff;
+            --accent: #8a8a8a;
+            --text: #1a1a1a;
+            --error: #d32f2f;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            background: var(--bg);
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .login-card {
+            width: 100%;
+            max-width: 380px;
+            background: var(--card);
+            border-radius: 12px;
+            padding: 40px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .login-logo {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .login-logo img {
+            max-width: 220px;
+            height: auto;
+        }
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .sub {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 28px;
+        }
+        label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #666;
+        }
+        input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background: #f9f9f9;
+            color: var(--text);
+            font-size: 1rem;
+            margin-bottom: 18px;
+        }
+        input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        button {
+            width: 100%;
+            padding: 14px;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+        button:hover { opacity: 0.9; }
+        button:disabled { opacity: 0.6; cursor: not-allowed; }
+        .error {
+            background: rgba(211,47,47,0.08);
+            color: var(--error);
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+            display: none;
+        }
+        .error.show { display: block; }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <div class="login-logo"><img src="../assets/img/logo_cropped.png" alt="Home Top Cortinas Decor"></div>
+        <h1>Dashboard</h1>
+        <p class="sub">Entre com seu e-mail e senha</p>
+        <div class="error" id="error"></div>
+        <form id="form">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required placeholder="admin@hometop.com.br" autocomplete="email">
+            <label for="password">Senha</label>
+            <input type="password" id="password" name="password" required placeholder="••••••••" autocomplete="current-password">
+            <button type="submit" id="btn">Entrar</button>
+        </form>
+    </div>
+    <script>window.API_BASE = window.API_BASE || window.location.origin;</script>
+    <script>
+        const API = window.API_BASE || '';
+        const form = document.getElementById('form');
+        const errorEl = document.getElementById('error');
+        const btn = document.getElementById('btn');
+
+        function showError(msg) {
+            errorEl.textContent = msg;
+            errorEl.classList.add('show');
+        }
+        function hideError() {
+            errorEl.classList.remove('show');
+        }
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            hideError();
+            btn.disabled = true;
+            try {
+                const res = await fetch(API + '/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        email: form.email.value.trim(),
+                        password: form.password.value
+                    })
+                });
+                const data = await res.json().catch(() => ({}));
+                if (!res.ok) {
+                    showError(data.error || 'Falha no login');
+                    btn.disabled = false;
+                    return;
+                }
+                localStorage.setItem('hometop_token', data.token);
+                localStorage.setItem('hometop_user', JSON.stringify(data.user));
+                window.location.href = 'index.html';
+            } catch (err) {
+                showError('Erro de conexão. Verifique se o servidor está rodando.');
+                btn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

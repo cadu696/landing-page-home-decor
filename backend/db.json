@@ -1,0 +1,190 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "admin@hometop.com.br",
+      "password": "admin123"
+    }
+  ],
+  "contacts": {
+    "numbers": [
+      {
+        "id": "1",
+        "number": "5547999140885"
+      },
+      {
+        "id": "2",
+        "number": "5547997287663"
+      }
+    ]
+  },
+  "sites": [
+    {
+      "id": "1",
+      "label": "Instagram",
+      "url": "https://www.instagram.com/hometopcortinasdecor/"
+    },
+    {
+      "id": "2",
+      "label": "Google Maps",
+      "url": "https://maps.app.goo.gl/g35MoFnewbufKrgx9"
+    }
+  ],
+  "products": [
+    {
+      "id": "cortinas",
+      "title": "Cortinas Sob Medida",
+      "desc": "Tecidos nobres e acabamento impecável para transformar seu ambiente.",
+      "image": "assets/img/cortinas.svg",
+      "collections": [
+        {
+          "id": "linha-classica",
+          "title": "Linha Clássica",
+          "image": "",
+          "images": [
+            "/uploads/1771422139225-teste 3.jfif",
+            "/uploads/1771422139231-teste 2.jpg",
+            "/uploads/1771422139236-teste 1.jpg"
+          ]
+        },
+        {
+          "id": "linha-moderna",
+          "title": "Linha Moderna",
+          "image": "",
+          "images": []
+        },
+        {
+          "id": "blackout",
+          "title": "Blackout",
+          "image": "",
+          "images": []
+        },
+        {
+          "id": "coleo-linho",
+          "title": "Coleção linho",
+          "image": "",
+          "images": []
+        }
+      ]
+    },
+    {
+      "id": "persianas",
+      "title": "Persianas",
+      "desc": "Funcionalidade e design moderno. Modelos Rolô, Romana, Vertical e mais.",
+      "image": "assets/img/persianas.svg",
+      "collections": [
+        {
+          "id": "rolo",
+          "title": "Rolô",
+          "image": "",
+          "images": []
+        },
+        {
+          "id": "romana",
+          "title": "Romana",
+          "image": "",
+          "images": []
+        },
+        {
+          "id": "vertical",
+          "title": "Vertical",
+          "image": "",
+          "images": []
+        }
+      ]
+    },
+    {
+      "id": "papel-parede",
+      "title": "Papéis de Parede",
+      "desc": "Estampas e texturas exclusivas para dar personalidade às suas paredes.",
+      "image": "assets/img/papel-parede.svg",
+      "collections": [
+        {
+          "id": "coleo-ripado",
+          "title": "Coleção Ripado",
+          "image": "",
+          "images": []
+        }
+      ]
+    },
+    {
+      "id": "tapetes",
+      "title": "Tapetes",
+      "desc": "Conforto e sofisticação aos seus pés em diversos tamanhos e estilos.",
+      "image": "assets/img/tapetes.svg",
+      "collections": []
+    },
+    {
+      "id": "piso-vinilico",
+      "title": "Piso Vinílico",
+      "desc": "Praticidade, durabilidade e beleza térmica para o seu lar.",
+      "image": "assets/img/piso-vinilico.svg",
+      "collections": []
+    },
+    {
+      "id": "almofadas",
+      "title": "Almofadas",
+      "desc": "Toque final de conforto e estilo com peças exclusivas e personalizadas.",
+      "image": "assets/img/tapetes.svg",
+      "collections": []
+    },
+    {
+      "id": "enxoval",
+      "title": "Enxoval",
+      "desc": "Roupas de cama Altenburg e enxovais completos para seu conforto.",
+      "image": "assets/img/cortinas.svg",
+      "collections": []
+    },
+    {
+      "id": "pingentes",
+      "title": "Pingentes",
+      "desc": "Detalhes que fazem a diferença na decoração das suas cortinas.",
+      "image": "assets/img/persianas.svg",
+      "collections": []
+    },
+    {
+      "id": "abracadeiras",
+      "title": "Abraçadeiras",
+      "desc": "Acessórios elegantes para prender e estilizar suas cortinas.",
+      "image": "assets/img/papel-parede.svg",
+      "collections": []
+    }
+  ],
+  "leads": [
+    {
+      "id": "1771422711611",
+      "nome": "Carlos",
+      "telefone": "47997285706",
+      "mensagem": "",
+      "origem": "site",
+      "data": "2026-02-18T13:51:51.612Z"
+    }
+  ],
+  "heroImage": "assets/img/hero-interior.png",
+  "projects": [
+    {
+      "id": "projeto-teste",
+      "title": "projeto teste",
+      "image": "",
+      "media": [
+        "/uploads/1771421980550-papel de parede.jpg"
+      ]
+    },
+    {
+      "id": "teste-2",
+      "title": "teste 2",
+      "image": "",
+      "media": [
+        "/uploads/1771422216675-teste 2.jpg"
+      ]
+    },
+    {
+      "id": "teste-3",
+      "title": "teste 3",
+      "image": "",
+      "media": [
+        "/uploads/1771422227933-teste 3.jfif"
+      ]
+    }
+  ]
+}

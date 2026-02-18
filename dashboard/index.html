@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Home Top</title>
+    <script>window.API_BASE = window.location.origin;</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="sidebar__logo"><img src="../assets/img/logo_cropped.png" alt="Home Top Cortinas Decor"></div>
+            <nav class="sidebar__nav">
+                <a href="#" class="nav-item active" data-section="leads"><span class="icon">📋</span> Leads</a>
+                <a href="#" class="nav-item" data-section="contacts"><span class="icon">📞</span> Contatos</a>
+                <a href="#" class="nav-item" data-section="products"><span class="icon">🛍️</span> Produtos</a>
+                <a href="#" class="nav-item" data-section="gallery"><span class="icon">🖼️</span> Galeria</a>
+            </nav>
+            <div class="sidebar__user">
+                <span id="userEmail">--</span>
+                <a href="login.html" class="logout">Sair</a>
+            </div>
+        </aside>
+        <main class="content">
+            <!-- Leads -->
+            <section id="section-leads" class="section active">
+                <h1>Leads</h1>
+                <p class="subtitle">Pessoas que clicaram em contato ou enviaram o formulário</p>
+                <div class="card">
+                    <div class="table-wrap">
+                        <table class="table">
+                            <thead>
+                                <tr><th>Data</th><th>Nome</th><th>Telefone</th><th>Mensagem</th><th>Origem</th><th></th></tr>
+                            </thead>
+                            <tbody id="leadsList"></tbody>
+                        </table>
+                    </div>
+                    <p id="leadsEmpty" class="empty-msg" style="display:none;">Nenhum lead ainda.</p>
+                </div>
+            </section>
+
+            <!-- Contatos -->
+            <section id="section-contacts" class="section">
+                <h1>Contatos</h1>
+                <p class="subtitle">Números de atendimento e links exibidos no site</p>
+
+                <div class="card">
+                    <h2 class="card__section-title">Contatos</h2>
+                    <div id="numbersList" class="numbers-list"></div>
+                    <button type="button" class="btn btn-secondary" id="btnAddNumber">Adicionar número</button>
+                    <button type="button" class="btn btn-primary" id="btnSaveContacts" style="margin-top: 16px;">Salvar contatos</button>
+                </div>
+
+                <div class="card">
+                    <h2 class="card__section-title">Sites</h2>
+                    <p class="hint">Links já exibidos no site. Edite ou adicione novos.</p>
+                    <div id="sitesList" class="sites-list"></div>
+                    <button type="button" class="btn btn-secondary" id="btnAddSite">Adicionar site</button>
+                    <button type="button" class="btn btn-primary" id="btnSaveSites" style="margin-top: 16px;">Salvar sites</button>
+                </div>
+            </section>
+
+            <!-- Produtos -->
+            <section id="section-products" class="section">
+                <h1>Produtos</h1>
+                <p class="subtitle">Gerencie os produtos e suas coleções. Clique no bloco para expandir.</p>
+                <div id="productBlocks" class="product-blocks"></div>
+                <button type="button" class="btn btn-primary" id="btnNewProduct" style="margin-top:16px;">+ Novo produto</button>
+            </section>
+
+            <!-- Galeria de Projetos -->
+            <section id="section-gallery" class="section">
+                <h1>Galeria de Projetos</h1>
+                <p class="subtitle">Gerencie os projetos exibidos na galeria do site. Cada bloco é um projeto.</p>
+                <div id="projectBlocks" class="product-blocks"></div>
+                <button type="button" class="btn btn-primary" id="btnNewProject" style="margin-top:16px;">+ Novo projeto</button>
+            </section>
+
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
