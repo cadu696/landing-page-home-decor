@@ -28,11 +28,6 @@
       "id": "2",
       "label": "Google Maps",
       "url": "https://maps.app.goo.gl/g35MoFnewbufKrgx9"
-    },
-    {
-      "id": "1771440559240",
-      "label": "Facebook",
-      "url": "https://www.facebook.com/carloseduardo.puccisilva/"
     }
   ],
   "products": [
@@ -40,7 +35,7 @@
       "id": "cortinas",
       "title": "Cortinas Sob Medida",
       "desc": "Tecidos nobres e acabamento impecável para transformar seu ambiente.",
-      "image": "assets/img/cortinas.svg",
+      "image": "/uploads/1771646127953-cortinas-1080x600.jpg",
       "collections": [
         {
           "id": "linha-classica",
@@ -76,7 +71,7 @@
       "id": "persianas",
       "title": "Persianas",
       "desc": "Funcionalidade e design moderno. Modelos Rolô, Romana, Vertical e mais.",
-      "image": "assets/img/persianas.svg",
+      "image": "/uploads/1771646519615-Captura de tela 2026-02-21 005913.png",
       "collections": [
         {
           "id": "rolo",
@@ -102,13 +97,40 @@
       "id": "papel-parede",
       "title": "Papéis de Parede",
       "desc": "Estampas e texturas exclusivas para dar personalidade às suas paredes.",
-      "image": "assets/img/papel-parede.svg",
+      "image": "/uploads/1771643438227-u42038pig13mr_1800.webp",
+      "covers": [
+        "/uploads/papel-parede-capa-1.webp",
+        "/uploads/papel-parede-capa-2.webp"
+      ],
       "collections": [
         {
           "id": "coleo-ripado",
           "title": "Coleção Ripado",
-          "image": "",
-          "images": []
+          "image": "/uploads/ripado-1.jpg",
+          "images": [
+            "/uploads/ripado-2.jpg",
+            "/uploads/ripado-3.jpg",
+            "/uploads/ripado-4.jpg",
+            "/uploads/ripado-5.jpg",
+            "/uploads/ripado-6.jpg",
+            "/uploads/ripado-7.jpg",
+            "/uploads/ripado-8.jpg"
+          ]
+        },
+        {
+          "id": "cimento-queimado",
+          "title": "Coleção Cimento Queimado",
+          "image": "/uploads/cimento-queimado-1.jpg",
+          "images": [
+            "/uploads/cimento-queimado-2.jpg",
+            "/uploads/cimento-queimado-3.jpg",
+            "/uploads/cimento-queimado-4.jpg",
+            "/uploads/cimento-queimado-5.jpg",
+            "/uploads/cimento-queimado-6.jpg",
+            "/uploads/cimento-queimado-7.jpg",
+            "/uploads/cimento-queimado-8.jpg",
+            "/uploads/cimento-queimado-9.jpg"
+          ]
         }
       ]
     },
@@ -116,42 +138,56 @@
       "id": "tapetes",
       "title": "Tapetes",
       "desc": "Conforto e sofisticação aos seus pés em diversos tamanhos e estilos.",
-      "image": "assets/img/tapetes.svg",
-      "collections": []
+      "image": "/uploads/1771646666172-1702550104_b8805c641fe8f2f95c40e520404b3b83.jpg",
+      "collections": [
+        {
+          "id": "rocks",
+          "title": "Coleção Rocks",
+          "image": "/uploads/tapetes-rocks-1.jpg",
+          "images": [
+            "/uploads/tapetes-rocks-2.jpg",
+            "/uploads/tapetes-rocks-3.jpg",
+            "/uploads/tapetes-rocks-4.jpg",
+            "/uploads/tapetes-rocks-5.jpg",
+            "/uploads/tapetes-rocks-6.jpg",
+            "/uploads/tapetes-rocks-7.jpg"
+          ]
+        }
+      ]
     },
     {
       "id": "piso-vinilico",
       "title": "Piso Vinílico",
       "desc": "Praticidade, durabilidade e beleza térmica para o seu lar.",
-      "image": "assets/img/piso-vinilico.svg",
+      "image": "/uploads/1771646827423-1742995982.jpeg",
       "collections": []
     },
     {
       "id": "almofadas",
       "title": "Almofadas",
       "desc": "Toque final de conforto e estilo com peças exclusivas e personalizadas.",
-      "image": "assets/img/tapetes.svg",
+      "image": "/uploads/1771646921804-465502_almofada_decorativa_bordada_wild_romance_38x58cm_homa_2.jpg",
       "collections": []
     },
     {
       "id": "enxoval",
       "title": "Enxoval",
       "desc": "Roupas de cama Altenburg e enxovais completos para seu conforto.",
-      "image": "assets/img/cortinas.svg",
+      "image": "/uploads/1771647043244-blog-1610735099.png",
       "collections": []
     },
     {
       "id": "pingentes",
       "title": "Pingentes",
       "desc": "Detalhes que fazem a diferença na decoração das suas cortinas.",
-      "image": "assets/img/persianas.svg",
+      "image": "/uploads/1771647340112-7b0beed5cc5cbdf2ae448dcc915e168c.webp",
       "collections": []
     },
     {
       "id": "abracadeiras",
       "title": "Abraçadeiras",
       "desc": "Acessórios elegantes para prender e estilizar suas cortinas.",
-      "image": "assets/img/papel-parede.svg",
+      "image": "/uploads/abracadeiras-capa.jpg",
       "collections": []
     }
   ],
@@ -168,27 +204,60 @@
   "heroImage": "assets/img/hero-interior.png",
   "projects": [
     {
-      "id": "projeto-teste",
-      "title": "projeto teste",
-      "image": "",
+      "id": "voil-elegance-wave",
+      "title": "Cortinas Voil Elegance",
+      "image": "/uploads/proj1-1.jpg",
       "media": [
-        "/uploads/1771421980550-papel de parede.jpg"
+        "/uploads/proj1-2.jpg",
+        "/uploads/proj1-3.jpg",
+        "/uploads/proj1-4.jpg",
+        "/uploads/proj1-5.jpg",
+        "/uploads/proj1-6.jpg",
+        "/uploads/proj1-7.jpg"
       ]
     },
     {
-      "id": "teste-2",
-      "title": "teste 2",
-      "image": "",
+      "id": "cortinas-e-papeis",
+      "title": "Cortinas Sob Medida e Papéis de Parede",
+      "image": "/uploads/proj2-1.jpg",
       "media": [
-        "/uploads/1771422216675-teste 2.jpg"
+        "/uploads/proj2-2.jpg",
+        "/uploads/proj2-3.jpg",
+        "/uploads/proj2-4.jpg",
+        "/uploads/proj2-5.jpg",
+        "/uploads/proj2-6.jpg",
+        "/uploads/proj2-7.jpg",
+        "/uploads/proj2-8.jpg",
+        "/uploads/proj2-9.jpg",
+        "/uploads/proj2-10.jpg"
       ]
     },
     {
-      "id": "teste-3",
-      "title": "teste 3",
-      "image": "",
+      "id": "projeto-barra-velha",
+      "title": "Projeto Barra Velha - Cortinas e Persianas",
+      "image": "/uploads/proj3-1.jpg",
       "media": [
-        "/uploads/1771422227933-teste 3.jfif"
+        "/uploads/proj3-2.jpg",
+        "/uploads/proj3-3.jpg",
+        "/uploads/proj3-4.jpg",
+        "/uploads/proj3-5.jpg",
+        "/uploads/proj3-6.jpg",
+        "/uploads/proj3-7.jpg"
+      ]
+    },
+    {
+      "id": "hotel-flat-concept",
+      "title": "Hotel Flat Concept",
+      "image": "/uploads/proj4-1.jpg",
+      "media": [
+        "/uploads/proj4-2.jpg",
+        "/uploads/proj4-3.jpg",
+        "/uploads/proj4-4.jpg",
+        "/uploads/proj4-5.jpg",
+        "/uploads/proj4-6.jpg",
+        "/uploads/proj4-7.jpg",
+        "/uploads/proj4-8.jpg",
+        "/uploads/proj4-9.jpg"
       ]
     }
   ]

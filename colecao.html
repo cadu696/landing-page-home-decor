@@ -29,7 +29,7 @@
         </div>
     </header>
 
-    <main class="galeria-page">
+    <main class="galeria-page" style="padding-bottom:4rem;">
         <div class="container">
             <div class="section__header" style="padding-top: calc(var(--header-height) + var(--spacing-lg));">
                 <p id="breadcrumb" style="font-size:0.95rem; margin-bottom:0.5rem;"></p>
@@ -45,10 +45,6 @@
                 Nenhuma imagem cadastrada nesta coleção ainda.
             </p>
 
-            <div style="text-align:center; margin-top:3rem;">
-                <button type="button" class="btn btn--primary js-open-lead-modal">Solicitar Orçamento</button>
-                <a href="#" id="backToProduct" class="btn btn--outline" style="margin-left:12px;">Voltar ao Produto</a>
-            </div>
         </div>
     </main>
 
@@ -96,8 +92,6 @@
             var prodId = params.get('produto');
             var colId = params.get('colecao');
             if (!prodId || !colId) { document.getElementById('collectionTitle').textContent = 'Coleção não encontrada'; return; }
-
-            document.getElementById('backToProduct').href = 'produto.html?id=' + encodeURIComponent(prodId);
 
             fetch('/api/public/products/' + encodeURIComponent(prodId))
                 .then(function(res) { if (!res.ok) throw new Error('404'); return res.json(); })

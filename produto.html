@@ -9,6 +9,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .product-cover {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+            margin-top: var(--header-height);
+        }
+        .product-cover img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .product-cover { grid-template-columns: 1fr; }
+            .product-cover img { height: 220px; }
+        }
+    </style>
 </head>
 <body>
     <header id="header" class="header">
@@ -29,7 +47,8 @@
         </div>
     </header>
 
-    <main class="product-page">
+    <main class="product-page" style="padding-bottom:4rem;">
+        <div id="productCover" class="product-cover" style="display:none;"></div>
         <div class="container">
             <div class="section__header">
                 <h1 class="section__title" id="productTitle">Carregando...</h1>
@@ -41,10 +60,6 @@
             <p id="emptyMsg" style="display:none; text-align:center; color:#888; font-size:1.1rem; margin-top:2rem;">
                 Nenhuma coleção cadastrada ainda. Entre em contato para saber mais.
             </p>
-            <div style="text-align:center; margin-top:3rem;">
-                <button type="button" class="btn btn--primary js-open-lead-modal">Solicitar Orçamento</button>
-                <a href="index.html#products" class="btn btn--outline" style="margin-left:12px;">Voltar aos Produtos</a>
-            </div>
         </div>
     </main>
 
@@ -98,6 +113,19 @@
                     document.title = prod.title + ' | Home Top Cortinas Decor';
                     document.getElementById('productTitle').textContent = prod.title;
                     document.getElementById('productDesc').textContent = prod.desc || '';
+
+                    var covers = prod.covers || [];
+                    if (covers.length > 0) {
+                        var coverEl = document.getElementById('productCover');
+                        coverEl.style.display = 'grid';
+                        covers.forEach(function(src) {
+                            if (src && !src.startsWith('http') && !src.startsWith('/')) src = '/' + src;
+                            var img = document.createElement('img');
+                            img.src = src;
+                            img.alt = prod.title;
+                            coverEl.appendChild(img);
+                        });
+                    }
 
                     var collections = prod.collections || [];
                     var grid = document.getElementById('collectionsGrid');

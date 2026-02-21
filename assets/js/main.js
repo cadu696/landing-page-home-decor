@@ -63,13 +63,15 @@ async function loadProductsGrid() {
         products.forEach(function(prod) {
             var imgSrc = prod.image || '';
             if (imgSrc && !imgSrc.startsWith('http') && !imgSrc.startsWith('/')) imgSrc = '/' + imgSrc;
+            var isPhoto = imgSrc && !imgSrc.endsWith('.svg');
+            var imgClass = isPhoto ? 'product-card__photo' : '';
             var a = document.createElement('a');
             a.href = 'produto.html?id=' + encodeURIComponent(prod.id);
             a.className = 'product-card-link';
             a.innerHTML =
                 '<article class="product-card">' +
                     '<div class="product-card__image-wrapper">' +
-                        (imgSrc ? '<img src="' + imgSrc + '" alt="' + (prod.title || '') + '">' : '') +
+                        (imgSrc ? '<img class="' + imgClass + '" src="' + imgSrc + '" alt="' + (prod.title || '') + '">' : '') +
                     '</div>' +
                     '<h3 class="product-card__title">' + (prod.title || '') + '</h3>' +
                     '<p class="product-card__desc">' + (prod.desc || '') + '</p>' +
