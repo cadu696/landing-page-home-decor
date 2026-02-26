@@ -109,9 +109,9 @@ ul {
 }
 
 .section__subtitle {
-    font-family: var(--font-script);
-    color: var(--color-accent);
-    font-size: 2.5rem;
+    font-family: var(--font-primary);
+    color: var(--color-primary);
+    font-size: 1.1rem;
     margin-top: -10px;
     display: block;
 }
@@ -435,12 +435,10 @@ ul {
 
 .product-card__desc {
     padding: 0;
-    color: var(--color-text-light);
-    font-size: 1rem;
+    color: var(--color-primary);
+    font-size: 0.95rem;
     text-align: center;
-    font-family: var(--font-script);
-    font-size: 1.5rem;
-    color: #888;
+    font-family: var(--font-primary);
 }
 
 /* Seção Sobre */
