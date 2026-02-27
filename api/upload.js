@@ -1,43 +1,63 @@
 const fs = require('fs');
 const path = require('path');
-const Busboy = require('busboy');
 const { verifyAuth } = require('./_auth');
 
 const UPLOAD_DIR = '/tmp/uploads';
 
 function parseMultipart(req) {
-  return new Promise((resolve, reject) => {
-    const busboy = Busboy({ headers: req.headers });
-    let fileData = null;
+  const contentType = req.headers['content-type'] || '';
+  const match = contentType.match(/boundary=(?:"([^"]+)"|([^\s;]+))/);
+  if (!match) return null;
+  const boundary = match[1] || match[2];
 
-    busboy.on('file', (fieldname, file, info) => {
-      const { filename, mimeType } = info;
-      const chunks = [];
-      file.on('data', (chunk) => chunks.push(chunk));
-      file.on('end', () => {
-        fileData = {
-          buffer: Buffer.concat(chunks),
-          filename: filename || 'upload',
-          mimeType
-        };
-      });
-    });
+  // Get body as Buffer
+  let body;
+  if (Buffer.isBuffer(req.body)) {
+    body = req.body;
+  } else if (typeof req.body === 'string') {
+    body = Buffer.from(req.body, 'binary');
+  } else {
+    return null;
+  }
 
-    busboy.on('finish', () => resolve(fileData));
-    busboy.on('error', reject);
+  const boundaryBuf = Buffer.from('--' + boundary);
+  const parts = [];
+  let start = 0;
 
-    // Vercel may have already parsed the body as a Buffer
-    if (req.body && Buffer.isBuffer(req.body)) {
-      busboy.end(req.body);
-    } else if (req.body && typeof req.body === 'string') {
-      busboy.end(Buffer.from(req.body));
-    } else {
-      req.pipe(busboy);
+  while (true) {
+    const idx = body.indexOf(boundaryBuf, start);
+    if (idx === -1) break;
+    if (start > 0) {
+      // Extract the part between previous boundary end and this boundary
+      const partData = body.slice(start, idx - 2); // -2 for \r\n before boundary
+      parts.push(partData);
     }
-  });
+    start = idx + boundaryBuf.length + 2; // +2 for \r\n after boundary
+    // Check for end marker --
+    if (body[idx + boundaryBuf.length] === 0x2d && body[idx + boundaryBuf.length + 1] === 0x2d) break;
+  }
+
+  for (const part of parts) {
+    const headerEnd = part.indexOf('\r\n\r\n');
+    if (headerEnd === -1) continue;
+    const headers = part.slice(0, headerEnd).toString('utf8');
+    const fileContent = part.slice(headerEnd + 4);
+
+    const nameMatch = headers.match(/name="([^"]+)"/);
+    const filenameMatch = headers.match(/filename="([^"]+)"/);
+
+    if (filenameMatch && fileContent.length > 0) {
+      return {
+        fieldname: nameMatch ? nameMatch[1] : 'file',
+        filename: filenameMatch[1],
+        buffer: fileContent
+      };
+    }
+  }
+  return null;
 }
 
-module.exports = async function handler(req, res) {
+module.exports = function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -46,7 +66,7 @@ module.exports = async function handler(req, res) {
   if (!user) return res.status(401).json({ error: 'Não autorizado' });
 
   try {
-    const file = await parseMultipart(req);
+    const file = parseMultipart(req);
     if (!file) return res.status(400).json({ error: 'Nenhum arquivo' });
 
     if (!fs.existsSync(UPLOAD_DIR)) {
@@ -64,7 +84,6 @@ module.exports = async function handler(req, res) {
   }
 };
 
-// Tell Vercel not to parse the body (we need the raw stream for busboy)
 module.exports.config = {
-  api: { bodyParser: false }
+  api: { bodyParser: { sizeLimit: '10mb' } }
 };
