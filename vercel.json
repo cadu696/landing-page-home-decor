@@ -1,7 +1,6 @@
 {
-  "buildCommand": "",
-  "installCommand": "npm install",
   "framework": null,
+  "outputDirectory": ".",
   "rewrites": [
     { "source": "/uploads/(.*)", "destination": "/backend/uploads/$1" }
   ]

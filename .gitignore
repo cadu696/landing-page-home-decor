@@ -6,3 +6,4 @@ node_modules/
 backend/node_modules/
 screenshot.png
 test*.jpg
+package-lock.json
