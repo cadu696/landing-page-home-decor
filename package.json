@@ -1,0 +1,8 @@
+{
+  "name": "hometop-landing",
+  "private": true,
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2",
+    "busboy": "^1.6.0"
+  }
+}
