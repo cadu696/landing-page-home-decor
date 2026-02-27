@@ -4,21 +4,26 @@ const { verifyAuth } = require('./_auth');
 module.exports = function handler(req, res) {
   if (req.method === 'GET') {
     const user = verifyAuth(req);
-    if (!user) return res.status(401).json({ error: 'Não autorizado' });
     try {
       const data = readDb();
-      let sites = data.sites || [];
       const c = data.contacts || {};
-      if (sites.length === 0 && (c.instagram || c.maps)) {
-        if (c.instagram) sites.push({ id: '1', label: 'Instagram', url: c.instagram });
-        if (c.maps) sites.push({ id: '2', label: 'Google Maps', url: c.maps });
-      }
       let numbers = c.numbers || [];
       if (numbers.length === 0 && (c.whatsapp1 || c.whatsapp2)) {
         if (c.whatsapp1) numbers.push({ id: '1', number: c.whatsapp1 });
         if (c.whatsapp2) numbers.push({ id: '2', number: c.whatsapp2 });
       }
-      res.json({ contacts: { numbers }, sites });
+      if (user) {
+        // Admin format: { contacts: { numbers }, sites }
+        let sites = data.sites || [];
+        if (sites.length === 0 && (c.instagram || c.maps)) {
+          if (c.instagram) sites.push({ id: '1', label: 'Instagram', url: c.instagram });
+          if (c.maps) sites.push({ id: '2', label: 'Google Maps', url: c.maps });
+        }
+        res.json({ contacts: { numbers }, sites });
+      } else {
+        // Public format: { numbers, sites }
+        res.json({ numbers, sites: data.sites || [] });
+      }
     } catch (e) {
       res.status(500).json({ error: 'Erro interno' });
     }

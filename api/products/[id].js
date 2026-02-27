@@ -2,12 +2,21 @@ const { readDb, writeDb } = require('../_db');
 const { verifyAuth } = require('../_auth');
 
 module.exports = function handler(req, res) {
-  const user = verifyAuth(req);
-  if (!user) return res.status(401).json({ error: 'Não autorizado' });
-
   const { id } = req.query;
 
-  if (req.method === 'PUT') {
+  if (req.method === 'GET') {
+    // Public: get single product (no auth required)
+    try {
+      const data = readDb();
+      const prod = (data.products || []).find(p => p.id === id);
+      if (!prod) return res.status(404).json({ error: 'Produto não encontrado' });
+      res.json(prod);
+    } catch (e) {
+      res.status(500).json({ error: 'Erro interno' });
+    }
+  } else if (req.method === 'PUT') {
+    const user = verifyAuth(req);
+    if (!user) return res.status(401).json({ error: 'Não autorizado' });
     try {
       const data = readDb();
       data.products = data.products || [];
@@ -20,6 +29,8 @@ module.exports = function handler(req, res) {
       res.status(500).json({ error: 'Erro interno' });
     }
   } else if (req.method === 'DELETE') {
+    const user = verifyAuth(req);
+    if (!user) return res.status(401).json({ error: 'Não autorizado' });
     try {
       const data = readDb();
       data.products = (data.products || []).filter(p => p.id !== id);

@@ -2,10 +2,8 @@ const { readDb, writeDb } = require('./_db');
 const { verifyAuth } = require('./_auth');
 
 module.exports = function handler(req, res) {
-  const user = verifyAuth(req);
-  if (!user) return res.status(401).json({ error: 'Não autorizado' });
-
   if (req.method === 'GET') {
+    // Public + Admin: list products (no auth required)
     try {
       const data = readDb();
       res.json(data.products || []);
@@ -13,6 +11,9 @@ module.exports = function handler(req, res) {
       res.status(500).json({ error: 'Erro interno' });
     }
   } else if (req.method === 'POST') {
+    // Admin only: create product
+    const user = verifyAuth(req);
+    if (!user) return res.status(401).json({ error: 'Não autorizado' });
     try {
       const data = readDb();
       data.products = data.products || [];

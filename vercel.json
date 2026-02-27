@@ -1,5 +1,10 @@
 {
   "rewrites": [
+    { "source": "/api/public/contacts", "destination": "/api/contacts" },
+    { "source": "/api/public/products/:id", "destination": "/api/products/:id" },
+    { "source": "/api/public/products", "destination": "/api/products" },
+    { "source": "/api/public/projects/:id", "destination": "/api/projects/:id" },
+    { "source": "/api/public/projects", "destination": "/api/projects" },
     { "source": "/uploads/(.*)", "destination": "/backend/uploads/$1" }
   ]
 }
