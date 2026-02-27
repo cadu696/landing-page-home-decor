@@ -962,32 +962,26 @@ ul {
     /* Cinza mais escuro para copyright */
 }
 
-/* Navegação Mobile */
-@media (max-width: 767px) {
-    :root {
-        --header-height: 85px;
-    }
-
+/* Navegação Mobile + Tablet */
+@media (max-width: 991px) {
     .header {
         height: auto;
     }
 
     .header__container {
         flex-wrap: wrap;
-        padding-top: 6px;
+        padding-top: 0;
         padding-bottom: 0;
-        min-height: 44px;
+        align-items: center;
     }
 
     .logo {
-        width: 150px;
+        width: 100px;
+        height: auto;
+        padding: 6px 0;
     }
 
-    .hero__title {
-        font-size: 2.5rem;
-    }
-
-    /* Nav sempre visível no mobile — barra horizontal scrollável */
+    /* Nav sempre visível — barra horizontal compacta */
     .nav {
         order: 3;
         width: 100%;
@@ -995,8 +989,8 @@ ul {
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         border-top: 1px solid #222;
-        padding: 4px 0;
-        margin-top: 4px;
+        padding: 2px 0;
+        margin: 0;
     }
 
     .nav::-webkit-scrollbar {
@@ -1006,18 +1000,18 @@ ul {
     .nav__list {
         flex-direction: row;
         flex-wrap: nowrap;
-        gap: 2px;
-        justify-content: flex-start;
-        padding: 0 6px;
+        gap: 0;
+        justify-content: center;
+        padding: 0 4px;
     }
 
     .nav__link {
         color: var(--color-accent);
-        font-size: 0.68rem;
+        font-size: 0.75rem;
         letter-spacing: 0.3px;
         white-space: nowrap;
-        padding: 5px 8px;
-        border-radius: 6px;
+        padding: 5px 10px;
+        border-radius: 4px;
         transition: background 0.2s;
     }
 
@@ -1032,6 +1026,31 @@ ul {
     /* Esconder hamburger — nav já está visível */
     .mobile-toggle {
         display: none !important;
+    }
+
+    /* Compensar header de duas linhas */
+    .hero {
+        padding-top: 68px;
+    }
+
+    section[id] {
+        scroll-margin-top: 68px;
+    }
+}
+
+/* Ajustes extra para celulares pequenos */
+@media (max-width: 480px) {
+    .logo {
+        width: 110px;
+    }
+
+    .nav__link {
+        font-size: 0.62rem;
+        padding: 3px 6px;
+    }
+
+    .hero__title {
+        font-size: 2.2rem;
     }
 }
 
