@@ -1,7 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const TMP_DB = '/tmp/db.json';
+const os = require('os');
+const TMP_DB = path.join(os.tmpdir(), 'hometop-db.json');
 const ORIGINAL_DB = path.join(process.cwd(), 'backend', 'db.json');
 
 function readDb() {
