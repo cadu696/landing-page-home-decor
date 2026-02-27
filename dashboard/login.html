@@ -9,11 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #f5f5f5;
+            --bg: #f7f7f5;
             --card: #ffffff;
-            --accent: #8a8a8a;
+            --accent: #b4a482;
+            --accent-hover: #a3936f;
             --text: #1a1a1a;
-            --error: #d32f2f;
+            --text-secondary: #6b6b6b;
+            --border: #e8e4dc;
+            --error: #d4483b;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -25,31 +28,33 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
+            -webkit-font-smoothing: antialiased;
         }
         .login-card {
             width: 100%;
-            max-width: 380px;
+            max-width: 400px;
             background: var(--card);
-            border-radius: 12px;
-            padding: 40px;
-            border: 1px solid #e0e0e0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-radius: 16px;
+            padding: 44px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
         }
         .login-logo {
             text-align: center;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
         }
         .login-logo img {
             max-width: 220px;
             height: auto;
         }
         h1 {
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 1.6rem;
+            font-weight: 700;
             margin-bottom: 8px;
+            letter-spacing: -0.02em;
         }
         .sub {
-            color: #666;
+            color: var(--text-secondary);
             font-size: 0.9rem;
             margin-bottom: 28px;
         }
@@ -58,41 +63,52 @@
             font-size: 0.85rem;
             font-weight: 500;
             margin-bottom: 6px;
-            color: #666;
+            color: var(--text-secondary);
         }
         input {
             width: 100%;
             padding: 12px 14px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            background: #f9f9f9;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: #faf9f7;
             color: var(--text);
             font-size: 1rem;
+            font-family: inherit;
             margin-bottom: 18px;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease;
         }
         input:focus {
             outline: none;
             border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(180,164,130,0.15);
         }
         button {
             width: 100%;
             padding: 14px;
-            background: var(--accent);
+            background: linear-gradient(135deg, var(--accent), var(--accent-hover));
             color: #fff;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             font-weight: 600;
             font-size: 1rem;
+            font-family: inherit;
             cursor: pointer;
             margin-top: 8px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
         }
-        button:hover { opacity: 0.9; }
-        button:disabled { opacity: 0.6; cursor: not-allowed; }
+        button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(180,164,130,0.3);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
         .error {
-            background: rgba(211,47,47,0.08);
+            background: rgba(212,72,59,0.08);
             color: var(--error);
-            padding: 10px 12px;
-            border-radius: 8px;
+            padding: 10px 14px;
+            border-radius: 10px;
             font-size: 0.9rem;
             margin-bottom: 16px;
             display: none;

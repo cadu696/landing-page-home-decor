@@ -61,11 +61,11 @@ async function loadLeads() {
     const tr = document.createElement('tr');
     const data = new Date(lead.data).toLocaleString('pt-BR');
     tr.innerHTML = `
-      <td>${data}</td>
-      <td>${escapeHtml(lead.nome)}</td>
-      <td><a href="https://wa.me/55${lead.telefone.replace(/\D/g,'')}" target="_blank">${escapeHtml(lead.telefone)}</a></td>
-      <td>${escapeHtml(lead.mensagem || '-')}</td>
-      <td>${escapeHtml(lead.origem || 'site')}</td>
+      <td data-label="Data">${data}</td>
+      <td data-label="Nome">${escapeHtml(lead.nome)}</td>
+      <td data-label="Telefone"><a href="https://wa.me/55${lead.telefone.replace(/\D/g,'')}" target="_blank">${escapeHtml(lead.telefone)}</a></td>
+      <td data-label="Mensagem">${escapeHtml(lead.mensagem || '-')}</td>
+      <td data-label="Origem">${escapeHtml(lead.origem || 'site')}</td>
       <td class="actions"><button type="button" data-id="${lead.id}" class="btn-delete">Excluir</button></td>
     `;
     tr.querySelector('.btn-delete').addEventListener('click', () => deleteLead(lead.id));
@@ -707,3 +707,40 @@ if (redirectLogin()) {
   loadProducts();
   loadProjects();
 }
+
+// ════════════════════════════════════════
+// ——  SIDEBAR MOBILE TOGGLE
+// ════════════════════════════════════════
+(function () {
+  var hamburger = document.getElementById('hamburgerBtn');
+  var sidebar = document.querySelector('.sidebar');
+  var overlay = document.getElementById('sidebarOverlay');
+  if (!hamburger || !sidebar || !overlay) return;
+
+  function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+    hamburger.classList.add('active');
+  }
+  function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+    hamburger.classList.remove('active');
+  }
+
+  hamburger.addEventListener('click', function () {
+    if (sidebar.classList.contains('open')) {
+      closeSidebar();
+    } else {
+      openSidebar();
+    }
+  });
+
+  overlay.addEventListener('click', closeSidebar);
+
+  document.querySelectorAll('.nav-item').forEach(function (item) {
+    item.addEventListener('click', function () {
+      if (window.innerWidth <= 1024) closeSidebar();
+    });
+  });
+})();
